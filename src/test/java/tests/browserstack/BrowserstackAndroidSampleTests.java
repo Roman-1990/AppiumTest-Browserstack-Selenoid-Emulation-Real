@@ -1,4 +1,4 @@
-package tests;
+package tests.browserstack;
 
 import io.appium.java_client.MobileBy;
 import org.junit.jupiter.api.DisplayName;
@@ -11,8 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
-public class BrowserstackAndroidSampleTests extends TestBase {
-
+public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
 
     @Test
     @DisplayName("Check Login option at menu")
