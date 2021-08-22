@@ -4,18 +4,16 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackMobileDriver;
 import helpers.AllureAttachments;
-import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import static helpers.AllureAttachments.getSessionId;
 
-@ExtendWith({AllureJunit5.class})
+
 public class BrowserstackTestBase {
     @BeforeAll
     static void setUp() {

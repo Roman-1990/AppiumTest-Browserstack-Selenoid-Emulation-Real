@@ -1,25 +1,22 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
-import config.EmulatorConfig;
 import io.appium.java_client.android.AndroidDriver;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static config.EmulatorProject.emulatorConfig;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmulatorMobileDriver implements WebDriverProvider {
 
-    static EmulatorConfig config = ConfigFactory.create(EmulatorConfig.class, System.getProperties());
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(config.getEmulatorUrl());
+            return new URL(emulatorConfig.getEmulatorUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -30,13 +27,13 @@ public class EmulatorMobileDriver implements WebDriverProvider {
 
         desiredCapabilities.setCapability("platformName", "Android");
 //        desiredCapabilities.setCapability("deviceName", "emulator-5554");
-        desiredCapabilities.setCapability("deviceName", config.getEmulatorDevice());
-        desiredCapabilities.setCapability("version", config.getEmulatorOsVersion());
+        desiredCapabilities.setCapability("deviceName", emulatorConfig.getEmulatorDevice());
+        desiredCapabilities.setCapability("version", emulatorConfig.getEmulatorOsVersion());
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-        desiredCapabilities.setCapability("app", getAbsolutePath(config.getEmulatorApp()));
+        desiredCapabilities.setCapability("app", getAbsolutePath(emulatorConfig.getEmulatorApp()));
 
 
         return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
