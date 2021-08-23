@@ -13,12 +13,12 @@ public class SelenoidWikiTests extends SelenoidTestBase{
     void searchTest() {
         open("https://www.wikipedia.org/");
         $(byXpath("//*[@id='searchLanguage']")).click();
-        $(byXpath("//*[@id='searchLanguage']/option[17]")).click();
-        $(byXpath("//*[@id='jsLangLabel']")).shouldHave(text("en"));
-        $("#searchInput").val("Jimi Hendrix").click();
+        $(byXpath("//*[@id='searchLanguage']/option[48]")).click();
+        $(byXpath("//*[@id='jsLangLabel']")).shouldHave(text("ru"));
+        $("#searchInput").val("java").click();
         $$("#typeahead-suggestions").findBy(visible)
-                .shouldHave(text("American guitarist, singer and songwriter"));
+                .shouldHave(text("язык программирования"));
         $$(".suggestion-link").first().click();
-        $(byXpath("//*[@id='mw-content-text']/div[1]/table[1]")).shouldHave(text("November 27, 1942"));
+        $(".toctext").shouldHave(text("История создания"));
     }
 }

@@ -5,9 +5,13 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:${deviceHost}.properties"
+        "classpath:browserstack.properties"
 })
 public interface BrowserstackConfig extends Config{
+
+    @Key("driver")
+    String driver();
+
     @Key("device")
     String device();
 

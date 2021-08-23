@@ -1,6 +1,11 @@
 package tests.browserstack;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import config.BrowserstackProject;
 import io.appium.java_client.MobileBy;
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,55 +17,33 @@ import static io.qameta.allure.Allure.step;
 
 public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
 
+    @BeforeAll
+    static void configureBaseUrl() {
+        RestAssured.baseURI = BrowserstackProject.browserstackConfig.apiUrl();
+        Configuration.baseUrl = BrowserstackProject.browserstackConfig.webUrl();
+    }
+
     @Test
-    @DisplayName("Checking the search")
-    public void sampleTest() {
-        back();
-        step("Проверяем поиск", () -> {
+    @DisplayName("Check Login option at menu")
+    void loginOptionCheck() {
+        step("Wait while Wikipedia is opened", () ->
+                $(MobileBy.AccessibilityId("Search Wikipedia")).shouldBe(visible));
+        step("Open menu", () ->
+                $(MobileBy.id("org.wikipedia.alpha:id/menu_overflow_button")).click());
+        step("Check Log in to Wikipedia option", () ->
+                $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name")).shouldHave(text("Log in to Wikipedia")));
+    }
+
+    @Test
+    @DisplayName("Successful search in wikipedia android app")
+    void searchTest() {
+        step("Type search", () -> {
             $(MobileBy.AccessibilityId("Search Wikipedia")).click();
-            $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).val("Github");
+            $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).val("BrowserStack");
         });
-        step("Проверка найденных данных", () ->
+        step("Verify content found", () ->
                 $$(MobileBy.id("org.wikipedia.alpha:id/page_list_item_container"))
                         .shouldHave(sizeGreaterThan(0)));
-    }
 
-    @Test
-    @DisplayName("Checking the start page")
-    void verifyText() {
-        step("Проверьте текст Энциклопедии", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("The free Encyclopedia"));
-            $(MobileBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        });
-    }
-
-    @Test
-    @DisplayName("New ways to explore")
-    void exploreTest () {
-        step("New ways to explore", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/primaryTextView"))
-                    .shouldHave(text("New ways to explore"));
-            $(MobileBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        });
-    }
-    @Test
-    @DisplayName("Reading lists with sync")
-    void readingTest () {
-        step("Reading lists with sync", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/secondaryTextView"))
-                    .shouldHave(text("Join Wikipedia"));
-            $(MobileBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click();
-        });
-    }
-    @Test
-    @DisplayName("Send anonymous data. Checkbox check")
-    void checkboxTest () {
-        step("Send anonymous data. Checkbox check", () -> {
-            $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
-                    .shouldHave(text("ON")).click();
-            $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
-                    .shouldHave(text("OFF"));
-        });
     }
 }

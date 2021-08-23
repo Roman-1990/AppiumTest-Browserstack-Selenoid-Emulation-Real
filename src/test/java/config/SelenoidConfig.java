@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:config/${deviceHost}.properties"
+        "classpath:config/selenoid.properties"
 })
 public interface SelenoidConfig extends Config{
 
@@ -21,8 +21,8 @@ public interface SelenoidConfig extends Config{
     @Key("password")
     String selenoidPassword();
 
-    @Key("selenoid.video.storage")
-    String selenoidVideoStorage();
+    @Key("videoStorage")
+    String videoStorage();
 
     @Key("browser")
     String browser();

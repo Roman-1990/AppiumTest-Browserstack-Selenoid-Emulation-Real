@@ -58,6 +58,12 @@ tasks.withType(Test) {
         ]
     }
 
+    tasks.withType(Test) {
+        if (System.getProperty("device.host") == null)
+            System.setProperty("device.host", "local")
+        systemProperties(System.getProperties())
+        useJUnitPlatform()
+    }
     testLogging {
         lifecycle {
 //            events "started", "failed"

@@ -11,6 +11,10 @@ import static org.aeonbits.owner.Config.LoadType.MERGE;
 })
 public interface EmulatorConfig extends Config {
 
+    @Key("driver")
+    @DefaultValue("driver")
+    String driver();
+
     @Key("emulator.app")
     @DefaultValue("src/test/resources/app-alpha-universal-release.apk")
     String getEmulatorApp();
