@@ -30,10 +30,10 @@ public class AllureAttachments {
                 + "' type='video/mp4'></video></body></html>";
     }
 
-    public static void addAttachments(String driver) {
+    public static void addAttachments(String selenoidDriver) {
         String sessionId;
-        switch(driver) {
-            case "SelenoidDriver":
+        switch(selenoidDriver) {
+            case "SelenoidMobileDriver":
                 sessionId = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
                 addScreenshotAs("Last screenshot");
                 addPageSource();

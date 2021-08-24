@@ -8,14 +8,17 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import javax.annotation.Nonnull;
 
+import static config.SelenoidProject.selenoidConfig;
+
 
 public class SelenoidMobileDriver implements WebDriverProvider{
 
 
     public static void configure() {
-        Configuration.browserVersion = SelenoidProject.selenoidConfig.browserVersion();
-        Configuration.browser = SelenoidProject.selenoidConfig.browser();
-        Configuration.browserSize = SelenoidProject.selenoidConfig.browserSize();
+
+        Configuration.browserVersion = selenoidConfig.browserVersion();
+        Configuration.browser = selenoidConfig.browser();
+        Configuration.browserSize = selenoidConfig.browserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -23,9 +26,9 @@ public class SelenoidMobileDriver implements WebDriverProvider{
         capabilities.setCapability("enableVideo", true);
 
         Configuration.remote = String.format(
-                SelenoidProject.selenoidConfig.selenoidUrl(),
-                SelenoidProject.selenoidConfig.selenoidUsername(),
-                SelenoidProject.selenoidConfig.selenoidPassword());
+                selenoidConfig.selenoidUrl(),
+                selenoidConfig.selenoidUsername(),
+                selenoidConfig.selenoidPassword());
 
         Configuration.browserCapabilities = capabilities;
     }

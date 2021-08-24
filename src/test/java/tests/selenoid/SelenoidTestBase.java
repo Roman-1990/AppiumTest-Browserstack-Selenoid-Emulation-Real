@@ -20,7 +20,7 @@ public class SelenoidTestBase {
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
-        if (Objects.equals(SelenoidProject.selenoidConfig.driver(), "SelenoidDriver")) {
+        if (Objects.equals(SelenoidProject.selenoidConfig.selenoidDriver(), "SelenoidDriver")) {
             SelenoidMobileDriver.configure();
         }
     }
@@ -32,7 +32,7 @@ public class SelenoidTestBase {
 
     @AfterEach
     public void afterEach() {
-        AllureAttachments.addAttachments(SelenoidProject.selenoidConfig.driver());
-        Configuration.browser = "drivers." + SelenoidProject.selenoidConfig.driver();
+        AllureAttachments.addAttachments(SelenoidProject.selenoidConfig.selenoidDriver());
+        Configuration.browser = "drivers." + SelenoidProject.selenoidConfig.selenoidDriver();
     }
 }

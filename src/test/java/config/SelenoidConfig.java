@@ -9,8 +9,8 @@ import org.aeonbits.owner.Config;
 })
 public interface SelenoidConfig extends Config{
 
-    @Key("driver")
-    String driver();
+    @Key("selenoid.driver")
+    String selenoidDriver();
 
     @Key("selenoid.url")
     String selenoidUrl();
