@@ -2,9 +2,14 @@ package tests.selenoid;
 
 
 import com.codeborne.selenide.Configuration;
+import helpers.AllureAttachments;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
+import static com.codeborne.selenide.Selenide.open;
 import static config.Project.deviceConfig;
 
 
@@ -26,6 +31,16 @@ public class SelenoidTestBase {
                 deviceConfig.selenoidPassword());
 
         Configuration.browserCapabilities = capabilities;
+    }
 
+    @BeforeEach
+    public void startSelenoidDriver() {
+        open();
+    }
+
+    @AfterEach
+    public void afterEach() {
+        AllureAttachments.addAttachments(deviceConfig.driver());
+        Configuration.browser = "drivers." + deviceConfig.driver();
     }
 }
