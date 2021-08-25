@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static config.BrowserstackProject.browserstackConfig;
+import static config.Project.deviceConfig;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
@@ -19,15 +19,15 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
     public WebDriver createDriver(DesiredCapabilities capabilities) {
 
         // Set your access credentials
-        capabilities.setCapability("browserstack.user", browserstackConfig.userLogin());
-        capabilities.setCapability("browserstack.key", browserstackConfig.userKey());
+        capabilities.setCapability("browserstack.user", deviceConfig.userLogin());
+        capabilities.setCapability("browserstack.key", deviceConfig.userKey());
 
         // Set URL of the application under test
-        capabilities.setCapability("app", browserstackConfig.androidAppUrl());
+        capabilities.setCapability("app", deviceConfig.androidAppUrl());
 
         // Specify device and os_version for testing
-        capabilities.setCapability("device", browserstackConfig.device());
-        capabilities.setCapability("os_version", browserstackConfig.os_version());
+        capabilities.setCapability("device", deviceConfig.device());
+        capabilities.setCapability("os_version", deviceConfig.os_version());
 
         // Set other BrowserStack capabilities
         capabilities.setCapability("project", "First Java Project");
@@ -41,9 +41,9 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         try {
             return new URL(
                     String.format(
-                    browserstackConfig.webUrl(),
-                    browserstackConfig.userLogin(),
-                    browserstackConfig.userKey())
+                    deviceConfig.webUrl(),
+                    deviceConfig.userLogin(),
+                    deviceConfig.userKey())
             );
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);

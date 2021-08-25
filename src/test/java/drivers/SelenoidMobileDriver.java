@@ -2,23 +2,22 @@ package drivers;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;
-import config.SelenoidProject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import javax.annotation.Nonnull;
 
-import static config.SelenoidProject.selenoidConfig;
+import static config.Project.deviceConfig;
 
 
-public class SelenoidMobileDriver implements WebDriverProvider{
+public class SelenoidMobileDriver implements WebDriverProvider {
 
 
     public static void configure() {
 
-        Configuration.browserVersion = selenoidConfig.browserVersion();
-        Configuration.browser = selenoidConfig.browser();
-        Configuration.browserSize = selenoidConfig.browserSize();
+        Configuration.browserVersion = deviceConfig.browserVersion();
+        Configuration.browser = deviceConfig.browser();
+        Configuration.browserSize = deviceConfig.browserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -26,9 +25,9 @@ public class SelenoidMobileDriver implements WebDriverProvider{
         capabilities.setCapability("enableVideo", true);
 
         Configuration.remote = String.format(
-                selenoidConfig.selenoidUrl(),
-                selenoidConfig.selenoidUsername(),
-                selenoidConfig.selenoidPassword());
+                deviceConfig.selenoidUrl(),
+                deviceConfig.selenoidUsername(),
+                deviceConfig.selenoidPassword());
 
         Configuration.browserCapabilities = capabilities;
     }

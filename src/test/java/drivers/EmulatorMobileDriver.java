@@ -8,7 +8,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static config.EmulatorProject.emulatorConfig;
+import static config.Project.deviceConfig;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmulatorMobileDriver implements WebDriverProvider {
@@ -16,7 +16,7 @@ public class EmulatorMobileDriver implements WebDriverProvider {
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL(emulatorConfig.getEmulatorUrl());
+            return new URL(deviceConfig.getEmulatorUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -27,13 +27,13 @@ public class EmulatorMobileDriver implements WebDriverProvider {
 
         desiredCapabilities.setCapability("platformName", "Android");
 //        desiredCapabilities.setCapability("deviceName", "emulator-5554");
-        desiredCapabilities.setCapability("deviceName", emulatorConfig.getEmulatorDevice());
-        desiredCapabilities.setCapability("version", emulatorConfig.getEmulatorOsVersion());
+        desiredCapabilities.setCapability("deviceName", deviceConfig.getEmulatorDevice());
+        desiredCapabilities.setCapability("version", deviceConfig.getEmulatorOsVersion());
         desiredCapabilities.setCapability("locale", "en");
         desiredCapabilities.setCapability("language", "en");
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
-        desiredCapabilities.setCapability("app", getAbsolutePath(emulatorConfig.getEmulatorApp()));
+        desiredCapabilities.setCapability("app", getAbsolutePath(deviceConfig.getEmulatorApp()));
 
 
         return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);

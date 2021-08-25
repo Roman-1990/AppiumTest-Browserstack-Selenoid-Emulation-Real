@@ -1,8 +1,7 @@
 package tests.emulator;
 
 import com.codeborne.selenide.Configuration;
-import config.BrowserstackProject;
-import config.EmulatorProject;
+import config.Project;
 import drivers.EmulatorMobileDriver;
 import helpers.AllureAttachments;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -32,8 +31,8 @@ public class EmulatorTestBase {
 
     @AfterEach
     public void afterEach() {
-        AllureAttachments.addAttachments(EmulatorProject.emulatorConfig.driver());
-        Configuration.browser = "drivers." + EmulatorProject.emulatorConfig.driver();
+        AllureAttachments.addAttachments(Project.deviceConfig.driver());
+        Configuration.browser = "drivers." + Project.deviceConfig.driver();
 
         closeWebDriver();
     }

@@ -2,7 +2,7 @@ package tests.browserstack;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.BrowserstackProject;
+import config.Project;
 import drivers.BrowserstackMobileDriver;
 import helpers.AllureAttachments;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -31,8 +31,8 @@ public class BrowserstackTestBase {
 
     @AfterEach
     public void afterEach() {
-        AllureAttachments.addAttachments(BrowserstackProject.browserstackConfig.driver());
-        Configuration.browser = "drivers." + BrowserstackProject.browserstackConfig.driver();
+        AllureAttachments.addAttachments(Project.deviceConfig.driver());
+        Configuration.browser = "drivers." + Project.deviceConfig.driver();
 
     }
 }

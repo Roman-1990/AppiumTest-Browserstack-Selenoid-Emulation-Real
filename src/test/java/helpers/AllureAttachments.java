@@ -1,6 +1,6 @@
 package helpers;
 
-import config.SelenoidProject;
+import config.Project;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -38,7 +38,7 @@ public class AllureAttachments {
                 addScreenshotAs("Last screenshot");
                 addPageSource();
                 closeWebDriver();
-                attachVideo(sessionId, SelenoidProject.selenoidConfig.videoStorage() + sessionId + ".mp4");
+                attachVideo(sessionId, Project.deviceConfig.videoStorage() + sessionId + ".mp4");
                 break;
             case "BrowserstackMobileDriver":
                 sessionId = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();

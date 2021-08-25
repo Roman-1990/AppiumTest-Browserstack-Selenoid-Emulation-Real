@@ -1,7 +1,7 @@
 package tests.browserstack;
 
 import com.codeborne.selenide.Configuration;
-import config.BrowserstackProject;
+import config.Project;
 import io.appium.java_client.MobileBy;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,8 +19,8 @@ public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
 
     @BeforeAll
     static void configureBaseUrl() {
-        RestAssured.baseURI = BrowserstackProject.browserstackConfig.apiUrl();
-        Configuration.baseUrl = BrowserstackProject.browserstackConfig.webUrl();
+        RestAssured.baseURI = Project.deviceConfig.apiUrl();
+        Configuration.baseUrl = Project.deviceConfig.webUrl();
     }
 
     @Test

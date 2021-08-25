@@ -2,7 +2,7 @@ package tests.selenoid;
 
 
 import com.codeborne.selenide.Configuration;
-import config.SelenoidProject;
+import config.Project;
 import drivers.SelenoidMobileDriver;
 import helpers.AllureAttachments;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -20,7 +20,7 @@ public class SelenoidTestBase {
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
-        if (Objects.equals(SelenoidProject.selenoidConfig.selenoidDriver(), "SelenoidDriver")) {
+        if (Objects.equals(Project.deviceConfig.driver(), "driver")) {
             SelenoidMobileDriver.configure();
         }
     }
@@ -32,7 +32,7 @@ public class SelenoidTestBase {
 
     @AfterEach
     public void afterEach() {
-        AllureAttachments.addAttachments(SelenoidProject.selenoidConfig.selenoidDriver());
-        Configuration.browser = "drivers." + SelenoidProject.selenoidConfig.selenoidDriver();
+        AllureAttachments.addAttachments(Project.deviceConfig.driver());
+        Configuration.browser = "drivers." + Project.deviceConfig.driver();
     }
 }
