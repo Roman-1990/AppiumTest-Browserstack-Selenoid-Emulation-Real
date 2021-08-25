@@ -2,37 +2,30 @@ package tests.selenoid;
 
 
 import com.codeborne.selenide.Configuration;
-import config.Project;
-import drivers.SelenoidMobileDriver;
-import helpers.AllureAttachments;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Objects;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
+import static config.Project.deviceConfig;
 
 
 public class SelenoidTestBase {
     @BeforeAll
     public static void setup() {
-        addListener("AllureSelenide", new AllureSelenide());
-        if (Objects.equals(Project.deviceConfig.driver(), "driver")) {
-            SelenoidMobileDriver.configure();
-        }
-    }
+        Configuration.browserVersion = deviceConfig.browserVersion();
+        Configuration.browser = deviceConfig.browser();
+        Configuration.browserSize = deviceConfig.browserSize();
 
-    @BeforeEach
-    public void startSelenoidDriver() {
-        open();
-    }
+        DesiredCapabilities capabilities = new DesiredCapabilities();
 
-    @AfterEach
-    public void afterEach() {
-        AllureAttachments.addAttachments(Project.deviceConfig.driver());
-        Configuration.browser = "drivers." + Project.deviceConfig.driver();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+
+        Configuration.remote = String.format(
+                deviceConfig.selenoidUrl(),
+                deviceConfig.selenoidUsername(),
+                deviceConfig.selenoidPassword());
+
+        Configuration.browserCapabilities = capabilities;
+
     }
 }
