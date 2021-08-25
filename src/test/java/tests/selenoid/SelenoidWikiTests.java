@@ -14,9 +14,8 @@ public class SelenoidWikiTests extends SelenoidTestBase {
     @Test
     @Tag("selenoid")
     void searchTest() {
-        step("Open wiki", () -> {
-            open("https://www.wikipedia.org/");
-        });
+        step("Open wiki", () ->
+                open("https://www.wikipedia.org/"));
         step("Options customization", () -> {
             $(byXpath("//*[@id='searchLanguage']")).click();
             $(byXpath("//*[@id='searchLanguage']/option[48]")).click();
