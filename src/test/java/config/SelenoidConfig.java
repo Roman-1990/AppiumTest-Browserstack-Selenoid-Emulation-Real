@@ -5,9 +5,9 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:config/selenoid.properties"
+        "classpath:${deviceHost}.properties"
 })
-public interface SelenoidConfig extends Config{
+public interface SelenoidConfig extends Config {
 
     @Key("selenoid.driver")
     String selenoidDriver();

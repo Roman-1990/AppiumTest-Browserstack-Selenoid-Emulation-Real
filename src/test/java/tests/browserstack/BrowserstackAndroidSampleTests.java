@@ -1,12 +1,12 @@
 package tests.browserstack;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import config.BrowserstackProject;
 import io.appium.java_client.MobileBy;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -24,6 +24,7 @@ public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
     }
 
     @Test
+    @Tag("browserstack")
     @DisplayName("Check Login option at menu")
     void loginOptionCheck() {
         step("Wait while Wikipedia is opened", () ->
@@ -35,6 +36,7 @@ public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
     }
 
     @Test
+    @Tag("browserstack")
     @DisplayName("Successful search in wikipedia android app")
     void searchTest() {
         step("Type search", () -> {

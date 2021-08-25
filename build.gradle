@@ -71,4 +71,21 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+}
+
+task selenoid(type: Test) {
+    useJUnitPlatform {
+        includeTags 'selenoid'
+    }
+}
+task emulator(type: Test) {
+    useJUnitPlatform {
+        includeTags 'emulator'
+    }
+}
+task browserstack(type: Test) {
+    useJUnitPlatform {
+        includeTags 'browserstack'
+    }
 }
