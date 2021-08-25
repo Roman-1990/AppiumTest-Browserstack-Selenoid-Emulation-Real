@@ -58,20 +58,6 @@ tasks.withType(Test) {
         ]
     }
 
-    tasks.withType(Test) {
-        if (System.getProperty("device.host") == null)
-            System.setProperty("device.host", "local")
-        systemProperties(System.getProperties())
-        useJUnitPlatform()
-    }
-    testLogging {
-        lifecycle {
-//            events "started", "failed"
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
-
 }
 
 task selenoid(type: Test) {
