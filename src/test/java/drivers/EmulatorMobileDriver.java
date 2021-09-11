@@ -4,6 +4,7 @@ import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,7 +13,6 @@ import static config.Project.deviceConfig;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EmulatorMobileDriver implements WebDriverProvider {
-
 
     public static URL getAppiumServerUrl() {
         try {
@@ -34,7 +34,6 @@ public class EmulatorMobileDriver implements WebDriverProvider {
         desiredCapabilities.setCapability("appPackage", "org.wikipedia.alpha");
         desiredCapabilities.setCapability("appActivity", "org.wikipedia.main.MainActivity");
         desiredCapabilities.setCapability("app", getAbsolutePath(deviceConfig.getEmulatorApp()));
-
 
         return new AndroidDriver(getAppiumServerUrl(), desiredCapabilities);
     }

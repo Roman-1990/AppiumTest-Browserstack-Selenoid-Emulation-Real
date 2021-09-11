@@ -12,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.open;
 
-
 public class BrowserstackTestBase {
     @BeforeAll
     static void setUp() {
@@ -25,7 +24,6 @@ public class BrowserstackTestBase {
 
     @BeforeEach
     public void startDriver() {
-
         open();
     }
 
@@ -33,6 +31,5 @@ public class BrowserstackTestBase {
     public void afterEach() {
         AllureAttachments.addAttachments(Project.deviceConfig.driver());
         Configuration.browser = "drivers." + Project.deviceConfig.driver();
-
     }
 }

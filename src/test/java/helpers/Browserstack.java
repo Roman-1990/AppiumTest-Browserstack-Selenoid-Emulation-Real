@@ -8,7 +8,6 @@ import static io.restassured.RestAssured.given;
 public class Browserstack {
     static DeviceConfig config = ConfigFactory.create(DeviceConfig.class, System.getProperties());
 
-
     public static String videoUrl(String sessionId) {
         given()
                 .auth().basic(config.userLogin(), config.userKey())
@@ -20,7 +19,6 @@ public class Browserstack {
                 .extract()
                 .response()
                 .path("automation_session.video_url");
-
 
         return sessionId;
     }
