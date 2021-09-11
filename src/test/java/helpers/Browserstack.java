@@ -5,6 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 import static io.restassured.RestAssured.given;
 
+
 public class Browserstack {
     static DeviceConfig config = ConfigFactory.create(DeviceConfig.class, System.getProperties());
 
