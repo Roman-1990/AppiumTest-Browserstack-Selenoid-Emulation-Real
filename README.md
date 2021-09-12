@@ -12,6 +12,18 @@ ___
 
 ___
 
+### Для запуска удаленных тестов необходимо заполнить remote.properties или передать значение:
+
+* browser (default chrome)
+* browserVersion (default 91.0)
+* browserSize (default 1920x1080)
+* threads (number of threads)
+
+  <img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Jenkins.PNG">
+
+## Анализ результатов через Allure Reports
+
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Allure.PNG">
 
 ### Launch tests in the terminal:
 
@@ -23,3 +35,11 @@ Run test emulator:
 
 Run test selenide: 
 * gradle clean selenoid -DdeviceHost=selenoid
+
+## :robot:Отправка оповещения о прохождении теста в <img src = "https://starchenkov.pro/qa-guru/img/skills/Telegram.svg" width = "30">
+
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Telegram.PNG">
+
+## Визуализация итогов пройденных тестов в Allure TestOps
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/AllureTestOps.PNG">
+
