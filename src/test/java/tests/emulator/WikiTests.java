@@ -1,6 +1,11 @@
 package tests.emulator;
 
+import annotations.JiraIssue;
+import annotations.JiraIssues;
+import annotations.Layer;
 import io.appium.java_client.MobileBy;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,10 +15,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-
+@Layer("Web")
+@Owner("roman")
+@Feature("Issues")
 public class WikiTests extends EmulatorTestBase {
 
     @Test
+    @JiraIssues({@JiraIssue("RK-03")})
     @Tag("emulator")
     @DisplayName("Checking the search")
     public void sampleTest() {
@@ -28,6 +36,7 @@ public class WikiTests extends EmulatorTestBase {
     }
 
     @Test
+    @JiraIssues({@JiraIssue("RK-04")})
     @Tag("emulator")
     @DisplayName("Checking the start page")
     void verifyText() {
@@ -39,6 +48,7 @@ public class WikiTests extends EmulatorTestBase {
     }
 
     @Test
+    @JiraIssues({@JiraIssue("RK-05")})
     @Tag("emulator")
     @DisplayName("New ways to explore")
     void exploreTest() {
@@ -50,6 +60,7 @@ public class WikiTests extends EmulatorTestBase {
     }
 
     @Test
+    @JiraIssues({@JiraIssue("RK-06")})
     @Tag("emulator")
     @DisplayName("Reading lists with sync")
     void readingTest() {
@@ -61,6 +72,7 @@ public class WikiTests extends EmulatorTestBase {
     }
 
     @Test
+    @JiraIssues({@JiraIssue("RK-07")})
     @Tag("emulator")
     @DisplayName("Send anonymous data. Checkbox check")
     void checkboxTest() {

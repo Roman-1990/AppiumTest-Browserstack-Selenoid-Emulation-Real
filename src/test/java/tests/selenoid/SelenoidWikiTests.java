@@ -1,5 +1,11 @@
 package tests.selenoid;
 
+import annotations.JiraIssue;
+import annotations.JiraIssues;
+import annotations.Layer;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -9,10 +15,15 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
+@Layer("Web")
+@Owner("roman")
+@Feature("Issues")
 public class SelenoidWikiTests extends SelenoidTestBase {
 
     @Test
+    @JiraIssues({@JiraIssue("RK-01")})
     @Tag("selenoid")
+    @DisplayName("Открытие и проверка Wiki")
     void searchTest() {
         step("Open wiki", () ->
                 open("https://www.wikipedia.org/"));

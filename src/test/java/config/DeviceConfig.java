@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties",
-        "classpath:${deviceHost}.properties"
+        "classpath:config/${deviceHost}.properties"
 })
 public interface DeviceConfig extends Config {
 
