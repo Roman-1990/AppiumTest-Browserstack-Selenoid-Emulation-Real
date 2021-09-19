@@ -5,11 +5,9 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.localStorage;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
