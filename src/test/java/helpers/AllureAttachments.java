@@ -49,13 +49,6 @@ public class AllureAttachments {
                 closeWebDriver();
                 attachVideo(sessionId, Browserstack.videoUrl(sessionId));
                 break;
-            default:
-                addScreenshotAs("Last screenshot");
-                AllureAttachments.addPageSource();
-                closeWebDriver();
-                break;
         }
     }
-
-
 }
