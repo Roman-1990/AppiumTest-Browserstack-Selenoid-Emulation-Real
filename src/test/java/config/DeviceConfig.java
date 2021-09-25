@@ -33,19 +33,19 @@ public interface DeviceConfig extends Config {
     @Key("userKey")
     String userKey();
 
-    @Key("emulator.app")
+    @Key("device.app")
     @DefaultValue("src/test/resources/app-alpha-universal-release.apk")
     String getEmulatorApp();
 
-    @Key("emulator.url")
+    @Key("device.url")
     @DefaultValue("http://127.0.0.1:4723/wd/hub")
     String getEmulatorUrl();
 
-    @Key("emulator.device.name")
+    @Key("device.name")
     @DefaultValue("Pixel_4_API_30")
     String getEmulatorDevice();
 
-    @Key("emulator.os.version")
+    @Key("device.os.version")
     @DefaultValue("11.0")
     String getEmulatorOsVersion();
 
