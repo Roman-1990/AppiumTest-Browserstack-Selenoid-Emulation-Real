@@ -67,7 +67,6 @@ public class WikiTests extends DeviceTestBase {
             );
             $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
                     .shouldHave(text("OFF"));
-
         });
     }
 

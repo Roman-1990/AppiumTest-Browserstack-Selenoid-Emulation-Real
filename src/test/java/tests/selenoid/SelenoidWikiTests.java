@@ -36,7 +36,6 @@ public class SelenoidWikiTests extends SelenoidTestBase {
             $("#searchInput").val("java").click();
             $$("#typeahead-suggestions").findBy(visible)
                     .shouldHave(text("язык программирования"));
-
             $$(".suggestion-link").first().click();
         });
         step("checking the text", () -> {

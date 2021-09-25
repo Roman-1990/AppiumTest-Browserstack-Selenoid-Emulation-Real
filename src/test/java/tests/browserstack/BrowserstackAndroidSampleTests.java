@@ -41,7 +41,8 @@ public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
         step("Open menu", () ->
                 $(MobileBy.id("org.wikipedia.alpha:id/menu_overflow_button")).click());
         step("Check Log in to Wikipedia option", () ->
-                $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name")).shouldHave(text("Log in to Wikipedia")));
+                $(MobileBy.id("org.wikipedia.alpha:id/explore_overflow_account_name"))
+                        .shouldHave(text("Log in to Wikipedia")));
     }
 
     @Test
@@ -56,6 +57,5 @@ public class BrowserstackAndroidSampleTests extends BrowserstackTestBase {
         step("Verify content found", () ->
                 $$(MobileBy.id("org.wikipedia.alpha:id/page_list_item_container"))
                         .shouldHave(sizeGreaterThan(0)));
-
     }
 }
