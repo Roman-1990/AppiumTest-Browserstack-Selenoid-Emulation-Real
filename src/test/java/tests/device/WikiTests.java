@@ -75,9 +75,11 @@ public class WikiTests extends DeviceTestBase {
     @Tag("device")
     @DisplayName("Send anonymous data. Checkbox check")
     void checkboxTest() {
-        step("Send anonymous data. Checkbox check", () -> {
+        step("Send anonymous data. Checkbox check ON", () -> {
             $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
                     .shouldHave(text("ON")).click();
+        });
+        step("Send anonymous data. Checkbox check OFF", () -> {
             $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
                     .shouldHave(text("OFF"));
         });

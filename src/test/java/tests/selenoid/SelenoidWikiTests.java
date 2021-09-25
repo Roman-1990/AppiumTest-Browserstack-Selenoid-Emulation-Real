@@ -25,20 +25,28 @@ public class SelenoidWikiTests extends SelenoidTestBase {
     @Tag("selenoid")
     @DisplayName("Открытие и проверка Wiki")
     void searchTest() {
-        step("Open wiki", () ->
+        step("Открываем wiki", () ->
                 open("https://www.wikipedia.org/"));
-        step("Options customization", () -> {
+        step("Настройка языка", () -> {
             $(byXpath("//*[@id='searchLanguage']")).click();
-            $(byXpath("//*[@id='searchLanguage']/option[48]")).click();
-            $(byXpath("//*[@id='jsLangLabel']")).shouldHave(text("ru"));
+            step("Выбираем русский язык", () ->
+                    $(byXpath("//*[@id='searchLanguage']/option[48]")).click()
+            );
+            step("Проверяем выбранный язык", () ->
+                    $(byXpath("//*[@id='jsLangLabel']")).shouldHave(text("ru"))
+            );
         });
-        step("enter java", () -> {
+        step("Вводим java", () -> {
             $("#searchInput").val("java").click();
+            step("Проверяем текст всплывающего окна", () ->
             $$("#typeahead-suggestions").findBy(visible)
-                    .shouldHave(text("язык программирования"));
-            $$(".suggestion-link").first().click();
+                    .shouldHave(text("язык программирования"))
+            );
+            step("Выбираем первую позицию", () ->
+            $$(".suggestion-link").first().click()
+            );
         });
-        step("checking the text", () -> {
+        step("Проверяем текст на странице", () -> {
             $(".toctext").shouldHave(text("История создания"));
         });
     }
