@@ -39,11 +39,11 @@ public class SelenoidWikiTests extends SelenoidTestBase {
         step("Вводим java", () -> {
             $("#searchInput").val("java").click();
             step("Проверяем текст всплывающего окна", () ->
-            $$("#typeahead-suggestions").findBy(visible)
-                    .shouldHave(text("язык программирования"))
+                    $$("#typeahead-suggestions").findBy(visible)
+                            .shouldHave(text("язык программирования"))
             );
             step("Выбираем первую позицию", () ->
-            $$(".suggestion-link").first().click()
+                    $$(".suggestion-link").first().click()
             );
         });
         step("Проверяем текст на странице", () -> {
