@@ -65,8 +65,10 @@ public class WikiTests extends DeviceTestBase {
             step("Reading lists with sync", () ->
                     $(MobileBy.id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")).click()
             );
-            $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
-                    .shouldHave(text("OFF"));
+            step("Switch view", () ->
+                    $(MobileBy.id("org.wikipedia.alpha:id/switchView"))
+                            .shouldHave(text("OFF"))
+            );
         });
     }
 
