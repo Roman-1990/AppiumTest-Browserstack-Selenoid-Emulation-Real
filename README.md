@@ -4,11 +4,11 @@ ___
 
 | IntelliJ IDEA | Java | Gradle | Junit5 | Selenide | Appium |
 |:------:|:----:|:----:|:------:|:------:|:--------:|
-| <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Intelij_IDEA.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Java.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Gradle.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/JUnit5.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Selenide.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/appium.png" width="40" height="40"> |
+| <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Intelij_IDEA.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Java.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Gradle.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/JUnit5.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Selenide.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/appium.png" width="40" height="40"> |
 
 | GitHub | Browserstack | Jenkins | Selenoid | Allure Report | Allure TestOps | Telegram |
 |:------:|:----:|:----:|:------:|:------:|:------:|:--------:|
-| <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Github.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/browserstack.jpeg" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Jenkins.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Selenoid.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Allure_Report.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/AllureTestOps.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/logo/Telegram.png" width="40" height="40"> |
+| <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Github.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/browserstack.jpeg" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Jenkins.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Selenoid.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Allure_Report.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/AllureTestOps.png" width="40" height="40"> | <img src="https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/logo/Telegram.png" width="40" height="40"> |
 
 ___
 
@@ -19,27 +19,27 @@ ___
 * browserSize (default 1920x1080)
 * threads (number of threads)
 
-  <img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Jenkins.PNG">
+  <img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/Jenkins.PNG">
 
-## Анализ результатов через Allure Reports
+## Анализ результатов пройденных тестов через Allure Reports
 
-<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Allure.PNG">
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/Allure.PNG">
 
-### Launch tests in the terminal:
+### Запуск тестов через терминал:
 
 Run test browserstack:
 * gradle clean browserstack -DdeviceHost=browserstack 
 
 Run test emulator:
-* gradle clean emulator -DdeviceHost=emulator
+* gradle clean emulator -DdeviceHost=device
 
 Run test selenide: 
 * gradle clean selenoid -DdeviceHost=selenoid
 
-## :robot:Отправка оповещения о прохождении теста в <img src = "https://starchenkov.pro/qa-guru/img/skills/Telegram.svg" width = "30">
+## :robot:Отправка уведомлений о прохождении тестов в <img src = "https://starchenkov.pro/qa-guru/img/skills/Telegram.svg" width = "30">
 
-<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/Telegram.PNG">
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/Telegram.PNG">
 
 ## Визуализация итогов пройденных тестов в Allure TestOps
-<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/src/test/resources/img/AllureTestOps.PNG">
+<img src = "https://github.com/Roman-1990/AppiumTest-Browserstack-Selenoid-Emulation-Real/blob/master/img/AllureTestOps.PNG">
 
