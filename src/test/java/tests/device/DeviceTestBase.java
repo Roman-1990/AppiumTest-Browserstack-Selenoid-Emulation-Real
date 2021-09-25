@@ -1,4 +1,4 @@
-package tests.emulator;
+package tests.device;
 
 import com.codeborne.selenide.Configuration;
 import config.Project;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
-public class EmulatorTestBase {
+public class DeviceTestBase {
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());

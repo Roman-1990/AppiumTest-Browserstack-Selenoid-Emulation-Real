@@ -21,7 +21,6 @@ public interface DeviceConfig extends Config {
     @Key("webUrl")
     String webUrl();
 
-
     @Key("apiUrl")
     String apiUrl();
 
@@ -33,7 +32,7 @@ public interface DeviceConfig extends Config {
 
     @Key("userKey")
     String userKey();
-//emulator config
+
     @Key("emulator.app")
     @DefaultValue("src/test/resources/app-alpha-universal-release.apk")
     String getEmulatorApp();
@@ -49,8 +48,6 @@ public interface DeviceConfig extends Config {
     @Key("emulator.os.version")
     @DefaultValue("11.0")
     String getEmulatorOsVersion();
-
-// selenoid config
 
     @Key("selenoid.url")
     String selenoidUrl();
